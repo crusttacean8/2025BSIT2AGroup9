@@ -49,3 +49,14 @@
       alert("You clicked the map at " + e.latlng);
     }
     map.on('click', onMapClick);
+
+        // Example: Alert when the button is clicked
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.querySelector(".btn");
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          alert("Welcome to Traffic Go!");
+        });
+      }
+    });
