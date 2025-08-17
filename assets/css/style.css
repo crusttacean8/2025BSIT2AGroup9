@@ -1,0 +1,244 @@
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex; 
+    }
+    #map {
+      flex: 1;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .content h1 {
+      margin: 10px;
+      font-size: 20px;
+      flex: 0 0 auto;  /* header stays fixed height */
+    }
+    
+    .about-logo{
+
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 20px;   /* adjust size */
+      z-index: 1000; /* stay above map */
+    }
+
+        html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    }
+    .content {
+    flex: 1;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .about-logo{
+
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 20px;   /* adjust size */
+      z-index: 1000; /* stay above map */
+    }
+
+        /* styles.css */
+    @font-face {
+        font-family: "Arya W00 Triple Slant";
+        src: url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.eot");
+        src: url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/35322764e8e963168d0559715bc734de.svg#Arya W00 Triple Slant")format("svg");
+    }
+
+    /* Apply the font to elements */
+    .logo, .footer-brand h2 {
+        font-family: "Arya W00 Triple Slant", sans-serif;
+    }
+    
+    body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+    }
+
+    header {
+    background-color: #1c3557;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    header .logo {
+    font-size: 24px;
+    font-family: "Arya W00 Triple Slant", sans-serif;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 2px;
+    }
+
+    nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    }
+
+    nav a:hover {
+    text-decoration: underline;
+    }
+
+    footer {
+    background-color: #1c3557;  /* Dark blue */
+    color: #cfd8e3;            /* Light grayish text */
+    text-align: center;
+    padding: 30px 20px;
+        }
+
+    .footer-logo {
+    font-size: 32px;
+    color: #cfd8e3;
+    font-family: "Arya W00 Triple Slant", sans-serif;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    }
+
+    footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    }
+
+    footer .tagline {
+    font-size: 13px;
+    color: #aab6c4;
+    }
+
+
+    .content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    }
+
+    /* About Us Heading */
+    h2 {
+    text-align: center;
+    font-size: 50px;
+    color: #1c3557;
+    font-family: 'Outfit', sans-serif; /* ✅ Outfit for header */
+    position: relative;
+    }
+
+    
+    .about-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    font-family: 'Inter', sans-serif; /* ✅ Inter for body */
+    }
+
+
+    .about-right {
+    flex: 1;
+    font-size: 30px;
+    line-height: 1.8;
+    color: #1c3557;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 20px;
+    font-family: 'Inter', sans-serif; /* ✅ Inter for mission */
+    }
+
+
+    .about-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
+    .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4a90e2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .btn:hover {
+    background: #357abf;
+    }
+
+    .about-bottom {
+    display: flex;
+    justify-content: flex-start;  
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+    }
+
+    .about-left {
+    flex: 0 0 150px; 
+    text-align: center;
+    }
+
+    .about-left img {
+    width: 600px;   
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about-right {
+    flex: 1;  
+    font-size: 22px;
+    line-height: 1.8;
+    color: #1c3557;
+    font-weight: bold;
+    text-align: right;
+    padding-left: 20px; 
+    }
+
+    
+    @media (max-width: 768px) {
+    .about-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-left,s
+    .about-right {
+        flex: none;
+        max-width: 100%;
+    }
+
+    .about-right {
+        padding-left: 0; 
+    }
+}
