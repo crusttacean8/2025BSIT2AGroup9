@@ -1,0 +1,414 @@
+ /* Fullscreen map */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  color: #1a1a1a;
+  background-color: #f9f9f9; /* light grayish white */
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* set fixed height */
+  z-index: 3000;
+}
+
+#map-container {
+  position: relative;
+  flex: 1;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+
+.traffic-logo,
+.suggest-logo,
+.recent-logo {
+  position: absolute;
+  z-index: 2000;
+}
+
+
+/* Style for centered search bar */
+.leaflet-control-geocoder.custom-geocoder {
+  position: absolute !important;
+  top: 30px;
+  left: 8%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  min-width: 200px;   
+  max-width: 250px; 
+  font-size: 14px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 4px;
+}
+
+
+/* Disable Zoom */
+
+.leaflet-control-zoom {
+  display: none !important;
+}
+
+/* Input inside */
+.leaflet-control-geocoder.custom-geocoder input {
+  width: 100%;
+  height: 32px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+
+.floating-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 1px;         /* consistent spacing between logos */
+  z-index: 2000;
+}
+
+.floating-nav img {
+  width: 100px;      
+  height: auto;
+  cursor: pointer;
+  padding: 2px;
+}
+
+/* If you want the save icon to be smaller */
+.floating-nav a:first-child img {
+  width: 85px;
+  right: 10px;
+}
+
+@media (max-width: 600px) {
+
+  .floating-nav {
+      flex-direction: column;
+  }
+  .floating-nav img {
+  width: 80px;      
+  height: auto;
+  cursor: pointer;
+  padding: 2px;
+  }
+
+  .floating-nav a:first-child img {
+  width: 65px;
+}
+
+}
+
+
+
+.traffic-logo {
+  top: 180px;
+  right: 10px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.traffic-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.suggest-logo {
+  bottom: 30px;
+  left: 10px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.suggest-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recent-logo {
+  bottom: 100px;
+  left: 10px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.recent-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+    @media (max-width: 600px) {
+
+      .leaflet-control-geocoder.custom-geocoder {
+      position: absolute !important;
+      top: 16px;
+      left: 30%;
+      transform: translateX(-50%);
+      z-index: 2000;
+
+      min-width: 200px;   /* smaller width */
+      max-width: 250px; 
+       font-size: 14px;
+       background: white;
+       border-radius: 6px;
+       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+       padding: 4px;
+      }
+
+
+      .recent-logo {
+        width: 75px;
+        bottom: 90px;
+      }
+
+      .traffic-logo {
+        width: 80px;
+        top: 300px;
+
+      }
+
+      .suggest-logo {
+        width: 70px;
+        bottom: 0px;
+      }
+      
+    }
+    
+        /*==== Values Section ====*/
+.values-section {
+  width: 100%;
+  background: linear-gradient(120deg, #1c3557 60%, #1f558f 100%);
+  margin: 40px 0 60px 0;   /* remove auto centering */
+  padding: 48px 32px 40px 32px;
+  text-align: center;
+  border-top: 1.5px solid #e2b07a22;
+  border-bottom: 1.5px solid #e2b07a22;
+  border-radius: 24;        
+  box-shadow: none;        
+}
+
+.values-section h2 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  margin-bottom: 18px;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(226, 176, 122, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.values-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+
+.value-card {
+  flex: 1 1 220px;
+  max-width: 260px;
+  min-width: 180px;
+}
+
+.value-card .icon {
+  font-size: 3rem;
+  animation: iconbounce 1.8s infinite alternate;
+}
+
+.value-card:nth-child(2) .icon {
+  animation-duration: 2.1s;
+}
+.value-card:nth-child(3) .icon {
+  animation-duration: 2.4s;
+}
+
+.value-card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #4a90e2;
+  margin: 10px 0 6px 0;
+  font-size: 1.2rem;
+}
+
+.value-card p {
+  font-family: 'Montserrat', sans-serif;
+  color: #f0f0f0;
+  font-size: 1.05rem;
+}
+
+/* Icon bounce animation */
+@keyframes iconbounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px) scale(1.08); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .values-section {
+    margin: 20px auto 40px auto;
+    padding: 32px 20px;
+    width: 90%;
+    border-radius: 24px;
+  }
+
+  .values-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .values-container {
+    gap: 20px;
+  }
+
+  .value-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+
+  }
+
+    .value-card p {
+    font-size: 0.95rem;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .values-section {
+    padding: 24px 16px;
+  }
+
+  .values-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .value-card .icon {
+    font-size: 2.5rem;
+  }
+
+  .value-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .value-card p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== Suggest Route Section ===== */
+.share-story-section {
+  background: linear-gradient(120deg, #1c3557 60%, #1f558f 100%);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  margin: 90px auto 60px auto;
+  max-width: 900px;
+  padding: 48px 32px 40px 32px;
+  text-align: center;
+  border: 1.5px solid #e2b07a55;
+}
+
+.share-story-section h2 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  margin-bottom: 18px;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(226, 176, 122, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.share-story-section p {
+  font-family: 'Montserrat', sans-serif;
+  color: #f0f0f0;
+  font-size: 1.08rem;
+  margin-bottom: 22px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 0 4px rgba(0,0,0,0.4);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.contribute-btn {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #4a90e2;
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+
+  display: inline-block;   
+  text-decoration: none; 
+
+}
+
+.contribute-btn:hover {
+  background-color: #315b97;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .share-story-section {
+    padding: 32px 20px;
+    margin: 30px auto 40px auto;
+  }
+
+  .share-story-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .share-story-section p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .contribute-btn {
+    width: 80%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .share-story-section {
+    padding: 24px 16px;
+    margin: 20px auto 30px auto;
+    border-radius: 0;
+  }
+
+  .share-story-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .share-story-section p {
+    font-size: 0.9rem;
+  }
+
+  .contribute-btn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
